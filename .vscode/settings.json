@@ -5,5 +5,17 @@
   "editor.formatOnType": true,
   "editor.formatOnPaste": true,
   "prettier.ignorePath": ".gitignore",
-  "cSpell.words": ["Nuxt", "nuxt", "nuxtjs"]
+  "cSpell.words": [
+    // Nuxt
+    "nuxt",
+    "nuxtjs",
+    "composables",
+    // GraphQL
+    "urql",
+    "codegen",
+    // Event
+    "debouncer",
+    // Contents
+    "snowtooth"
+  ]
 }
