@@ -10,7 +10,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "codegen": "tsc graphql/codegen/plugins/enums_as_const.ts && graphql-codegen --config graphql/codegen/codegen.config.ts"
   },
   "dependencies": {
     "@urql/vue": "^1.1.2",
