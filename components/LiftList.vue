@@ -32,7 +32,7 @@ const state = ref({
   searchId: "",
 })
 
-const searchLiftVars = ref({
+const _searchLiftVars = ref({
   id: "",
 })
 const searchLiftRes = useQuery({
@@ -45,7 +45,7 @@ const searchLiftRes = useQuery({
       }
     }
   `),
-  variables: searchLiftVars,
+  variables: _searchLiftVars,
   pause: true,
 })
 const searchedLifts = searchLiftRes.data
@@ -58,7 +58,7 @@ const searchLift = (id: string) => {
     return
   }
   _debouncer.debounce(() => {
-    searchLiftVars.value.id = id
+    _searchLiftVars.value.id = id
     nextTick(searchLiftRes.executeQuery)
   })
 }
