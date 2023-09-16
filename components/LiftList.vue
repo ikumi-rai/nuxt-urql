@@ -32,12 +32,12 @@ const state = ref({
   searchId: "",
 })
 
-const liftSearchVariables = ref({
+const searchLiftVars = ref({
   id: "",
 })
-const liftSearch = useQuery({
+const searchLiftRes = useQuery({
   query: graphql(`
-    query liftSearch($id: String!) {
+    query searchLift($id: String!) {
       search(term: $id) {
         ... on Lift {
           ...LiftList_lift
@@ -45,10 +45,10 @@ const liftSearch = useQuery({
       }
     }
   `),
-  variables: liftSearchVariables,
+  variables: searchLiftVars,
   pause: true,
 })
-const searchedLifts = liftSearch.data
+const searchedLifts = searchLiftRes.data
 
 const _debouncer = new Debouncer(500)
 
@@ -58,13 +58,13 @@ const searchLift = (id: string) => {
     return
   }
   _debouncer.debounce(() => {
-    liftSearchVariables.value.id = id
-    nextTick(liftSearch.executeQuery)
+    searchLiftVars.value.id = id
+    nextTick(searchLiftRes.executeQuery)
   })
 }
 
 searchLift.refresh = () => {
-  liftSearch.executeQuery({ requestPolicy: "network-only" })
+  searchLiftRes.executeQuery({ requestPolicy: "network-only" })
 }
 </script>
 
